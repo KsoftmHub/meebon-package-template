@@ -18,6 +18,7 @@
     "tests"
   ],
   "include": [
-    "lib/**/*.ts"
+    "lib",
+    "type"
   ]
 }
