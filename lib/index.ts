@@ -1,8 +1,6 @@
-import { Module } from "../types/modules";
+console.log("done");
 
-export default function modules(name: string): Module {
-  const data: Module = {
-    data: "name"
-  }
-  return data;
+
+export default {
+  data: "done"
 }
