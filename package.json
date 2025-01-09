@@ -1,9 +1,9 @@
 {
-  "name": "@miller/miller_package_template",
+  "name": "@meebon/meebon_package_template",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "kajalanS <103587022+kajalanS@users.noreply.github.com>",
-  "homepage": "https://github.com/KsoftmHub/miller_package_template?tab=readme-ov-file#getting-started",
+  "homepage": "https://github.com/KsoftmHub/meebon_package_template?tab=readme-ov-file#getting-started",
   "license": "ISC",
   "main": "dist/template.js",
   "type": "module",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KsoftmHub/miller_package_template.git"
+    "url": "git+https://github.com/KsoftmHub/meebon_package_template.git"
   },
   "scripts": {
     "build:clean": "tsc --build --clean",
@@ -24,7 +24,7 @@
     "test": "jest"
   },
   "bugs": {
-    "url": "https://github.com/KsoftmHub/miller_package_template/issues"
+    "url": "https://github.com/KsoftmHub/meebon_package_template/issues"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
