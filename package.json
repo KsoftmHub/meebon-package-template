@@ -21,7 +21,10 @@
   "scripts": {
     "build:clean": "tsc --build --clean",
     "build": "tsc && jest",
-    "test": "jest"
+    "test": "jest",
+    "rm:node": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
+    "rm:dist": "find . -name \"dist\" -type d -prune -exec rm -rf '{}' +",
+    "clean": "pnpm run rm:node && pnpm run rm:dist"
   },
   "bugs": {
     "url": "https://github.com/KsoftmHub/meebon_package_template/issues"
