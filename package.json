@@ -7,12 +7,15 @@
   "license": "ISC",
   "main": "dist/index.js",
   "type": "module",
+  "types": "types",
   "directories": {
     "lib": "lib",
     "test": "tests"
   },
   "files": [
-    "dist"
+    "dist",
+    "types",
+    "test"
   ],
   "repository": {
     "type": "git",
