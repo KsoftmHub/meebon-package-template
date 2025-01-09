@@ -10,7 +10,8 @@
   "types": "types",
   "directories": {
     "lib": "lib",
-    "test": "tests"
+    "test": "tests",
+    "types": "types"
   },
   "files": [
     "dist",
