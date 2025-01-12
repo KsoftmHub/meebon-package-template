@@ -1,6 +1,6 @@
 {
   "name": "@meebon/meebon_package_template",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "author": "kajalanS <103587022+kajalanS@users.noreply.github.com>",
   "homepage": "https://github.com/KsoftmHub/meebon_package_template?tab=readme-ov-file#getting-started",
@@ -27,8 +27,7 @@
     ]
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "repository": {
     "type": "git",
