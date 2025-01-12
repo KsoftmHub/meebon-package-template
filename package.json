@@ -11,8 +11,7 @@
   "directories": {
     "lib": "lib",
     "test": "tests",
-    "types": "types",
-    "bin": "bin"
+    "types": "types"
   },
   "files": [
     "dist",
@@ -34,7 +33,7 @@
     "url": "git+https://github.com/KsoftmHub/meebon-package-template.git"
   },
   "bin": {
-    "create-meebon-package": "./bin/cli.js"
+    "create-meebon-package": "./bin/cli.mjs"
   },
   "scripts": {
     "build:clean": "tsc --build --clean",

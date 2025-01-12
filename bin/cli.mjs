@@ -3,14 +3,20 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(path.dirname(__filename));
 
 const projectName = process.argv[2] || "my-package";
 const projectPath = path.join(process.cwd(), projectName);
 
 if (fs.existsSync(projectPath)) {
-    console.error(`Directory "${projectName}" already exists.`);
-    process.exit(1);
+    fs.rmdirSync(projectPath, { recursive: true, force: true })
+    // console.error(`Directory "${projectName}" already exists.`);
+    // process.exit(1);
 }
+
 fs.mkdirSync(projectPath);
 
 const templatePath = path.join(__dirname);
