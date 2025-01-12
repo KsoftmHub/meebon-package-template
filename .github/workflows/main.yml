@@ -23,14 +23,12 @@ jobs:
         with:
           node-version: "lts/*"
 
-    steps:
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install dependencies with pnpm
         run: pnpm install
 
-    steps:
       - name: Build the project
         run: pnpm run build
 
@@ -46,7 +44,6 @@ jobs:
       #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         # run: pnpm dlx semantic-release
 
-    steps:
       - name: Release
         uses: actions/checkout@v4
       - name: Semantic Release
