@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    branches :
+    branches:
       - main
       - next
 
@@ -11,19 +11,29 @@ permissions:
   issues: write
   pull-requests: write
 
-
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: node-version: "lts/*"
-      - run: npm ci
-      - run: npm run build
-      - run: npm audit signaturesl
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Audit npm packages
+        run: npm audit --production
+
       - name: Release
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npx semantic—release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
