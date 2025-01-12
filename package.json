@@ -1,6 +1,6 @@
 {
   "name": "@meebon/meebon_package_template",
-  "version": "1.0.6",
+  "version": "0.0.0-development",
   "description": "",
   "author": "kajalanS <103587022+kajalanS@users.noreply.github.com>",
   "homepage": "https://github.com/KsoftmHub/meebon_package_template?tab=readme-ov-file#getting-started",
@@ -44,6 +44,7 @@
     "rm:node": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
     "rm:dist": "find . -name \"dist\" -type d -prune -exec rm -rf '{}' +",
     "clean": "pnpm run rm:node && pnpm run rm:dist",
+    "commit": "cz",
     "semantic-release": "semantic-release"
   },
   "bugs": {
