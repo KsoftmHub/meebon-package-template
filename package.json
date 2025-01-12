@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KsoftmHub/meebon_package_template.git"
+    "url": "git+https://github.com/KsoftmHub/meebon-package-template.git"
   },
   "bin": {
     "create-meebon-package": "./bin/cli.js"
