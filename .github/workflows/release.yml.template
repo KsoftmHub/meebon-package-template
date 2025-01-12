@@ -35,8 +35,6 @@ jobs:
       - name: Audit dependencies
         run: pnpm audit --prod
 
-      - name: Release
-        uses: actions/checkout@v4
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v4
         env:
