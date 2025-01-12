@@ -23,20 +23,39 @@ jobs:
         with:
           node-version: "lts/*"
 
+    steps:
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install dependencies with pnpm
         run: pnpm install
 
+    steps:
       - name: Build the project
         run: pnpm run build
 
       - name: Audit dependencies
         run: pnpm audit --prod
 
+      # - name: Semantic Release
+      #     uses: cycjimmy/semantic-release-action@v4
+
+      # - name: Release
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # run: pnpm dlx semantic-release
+
+    steps:
       - name: Release
+        uses: actions/checkout@v4
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+         with:
+          # You can specify specifying version range for the extra plugins if you prefer.
+          extra_plugins: |
+            @semantic-release/changelog@6.0.0
+            @semantic-release/git
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm dlx semantic-release
