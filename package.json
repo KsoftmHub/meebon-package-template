@@ -14,10 +14,7 @@
     "types": "types"
   },
   "files": [
-    "dist",
-    "types",
-    "test",
-    "bin"
+    "dist"
   ],
   "release": {
     "branches": [
@@ -31,9 +28,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KsoftmHub/meebon-package-template.git"
-  },
-  "bin": {
-    "create-meebon-package": "./bin/cli.mjs"
   },
   "scripts": {
     "build:clean": "tsc --build --clean",
