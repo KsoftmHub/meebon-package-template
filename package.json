@@ -1,6 +1,6 @@
 {
   "name": "@meebon/meebon_package_template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "author": "kajalanS <103587022+kajalanS@users.noreply.github.com>",
   "homepage": "https://github.com/KsoftmHub/meebon_package_template?tab=readme-ov-file#getting-started",
@@ -50,15 +50,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.1",
-    "@semantic-release/release-notes-generator": "^14.0.3",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.5",
     "jest": "^29.7.0",
-    "semantic-release": "^24.2.1",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.19.1"
