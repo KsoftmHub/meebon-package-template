@@ -1,9 +1,28 @@
 #!/usr/bin/env node
 
-import { mkdirSync, writeFileSync } from 'fs';
-const projectName = process.argv[2] || "my-package";
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
 
-mkdirSync(projectName);
-writeFileSync(`${projectName}/index.js`, "// Your project starts here");
+const projectName = process.argv[2];
+if (!projectName) {
+    console.error("Please specify a project name: create-myapp <project-name>");
+    process.exit(1);
+}
 
-console.log(`Project '${projectName}' created successfully!`);
+const projectPath = path.join(process.cwd(), projectName);
+
+if (fs.existsSync(projectPath)) {
+    console.error(`Directory "${projectName}" already exists.`);
+    process.exit(1);
+}
+fs.mkdirSync(projectPath);
+
+const templatePath = path.join(__dirname);
+fs.cpSync(templatePath, projectPath, { recursive: true });
+
+console.log("Initializing pnpm...");
+execSync('pnpm init -y', { cwd: projectPath, stdio: 'inherit' });
+
+console.log(`Project "${projectName}" created successfully!`);
+console.log(`Navigate to the project directory: cd ${projectName}`);
