@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+import { mkdirSync, writeFileSync } from 'fs';
 const projectName = process.argv[2] || "my-package";
 
-fs.mkdirSync(projectName);
-fs.writeFileSync(`${projectName}/index.js`, "// Your project starts here");
+mkdirSync(projectName);
+writeFileSync(`${projectName}/index.js`, "// Your project starts here");
 
 console.log(`Project '${projectName}' created successfully!`);
