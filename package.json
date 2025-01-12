@@ -44,7 +44,7 @@
     "rm:node": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
     "rm:dist": "find . -name \"dist\" -type d -prune -exec rm -rf '{}' +",
     "clean": "pnpm run rm:node && pnpm run rm:dist",
-    "commit": "cz",
+    "commit": "git-cz",
     "semantic-release": "semantic-release"
   },
   "bugs": {
