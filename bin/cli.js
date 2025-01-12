@@ -4,12 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 
-const projectName = process.argv[2];
-if (!projectName) {
-    console.error("Please specify a project name: create-myapp <project-name>");
-    process.exit(1);
-}
-
+const projectName = process.argv[2] || "my-package";
 const projectPath = path.join(process.cwd(), projectName);
 
 if (fs.existsSync(projectPath)) {
