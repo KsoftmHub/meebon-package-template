@@ -14,7 +14,8 @@
     "types": "types"
   },
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "release": {
     "branches": [
