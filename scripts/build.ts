@@ -1,16 +1,22 @@
-import { copyFileSync, cp, cpSync, rmSync } from "node:fs";
+import { readFileSync, rmSync } from "node:fs";
 import { buildSync } from "esbuild";
 import pkg from "../package.json";
 import { execSync } from "node:child_process";
 
-rmSync("dist", { force: true, recursive: true });
+// find the build directory
+const tsc = JSON.parse(readFileSync("tsconfig.json").toString())
+const buildDir = tsc?.compilerOptions?.outDir ?? "dist";
 
+// remove the dist file
+rmSync(buildDir, { force: true, recursive: true });
+
+// build ts declaration (*.d.ts)
 execSync("tsc --project tsconfig.json", { stdio: "inherit" });
 
-
+// build files
 buildSync({
   entryPoints: ["lib/index.ts"],
-  outfile: "dist/index.js",
+  outfile: `${buildDir}/index.js`,
   bundle: true,
   platform: "node",
   format: "esm",
@@ -19,20 +25,3 @@ buildSync({
   external: Object.keys(pkg.dependencies),
   resolveExtensions: [".ts", ".js", ".json", ".d.ts"],
 });
-
-// cpSync("types", "dist/types", { recursive: true });
-
-/*
-
-buildSync({
-  entryPoints: ["lib/index.ts"],
-  outdir: "dist",
-  bundle: true,
-  platform: "node",
-  format: "esm",
-  external: Object.keys(pkg.dependencies),
-  resolveExtensions: [".ts", ".js", ".json"]
-});
-
-
-*/

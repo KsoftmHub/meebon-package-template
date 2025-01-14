@@ -30,13 +30,13 @@
     "url": "git+https://github.com/KsoftmHub/meebon-package-template.git"
   },
   "scripts": {
-    "ci": "pnpm run rm:node && pnpm i",
-    "rm:node": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
-    "clean": "tsx scripts/clean.ts --tsconfig tsconfig.json",
-    "build": "tsx scripts/build.ts --tsconfig tsconfig.json && jest",
     "test": "jest",
     "commit": "git-cz",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "refresh": "pnpm run rm:node && pnpm i",
+    "rm:node": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
+    "ci": "tsx scripts/clean.ts --tsconfig tsconfig.json",
+    "build": "tsx scripts/build.ts --tsconfig tsconfig.json && jest"
   },
   "bugs": {
     "url": "https://github.com/KsoftmHub/meebon-package-template/issues"

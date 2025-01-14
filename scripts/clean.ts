@@ -1,8 +1,12 @@
-import { existsSync, rmSync } from "node:fs";
+import { existsSync, readFileSync, rmSync } from "node:fs";
 import { execSync } from 'child_process'
 
+// find the build directory
+const tsc = JSON.parse(readFileSync("tsconfig.json").toString())
+const buildDir = tsc?.compilerOptions?.outDir ?? "dist";
+
 const foldersToClean = [
-    'dist',
+    buildDir,
     'coverage',
 
 
@@ -19,4 +23,4 @@ foldersToClean.forEach(folder => {
     }
 })
 
-execSync("pnpm run ci", { stdio: "inherit" })
+execSync("pnpm run refresh", { stdio: "inherit" })
