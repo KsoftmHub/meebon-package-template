@@ -1,9 +1,9 @@
 {
-  "name": "@meebon/meebon_package_template",
-  "version": "0.0.0-development",
+  "name": "@meebon/meebon-package-template",
+  "version": "1.0.0",
   "description": "",
   "author": "kajalanS <103587022+kajalanS@users.noreply.github.com>",
-  "homepage": "https://github.com/KsoftmHub/meebon_package_template?tab=readme-ov-file#getting-started",
+  "homepage": "https://github.com/KsoftmHub/meebon-package-template?tab=readme-ov-file#getting-started",
   "license": "MIT",
   "main": "dist/index.js",
   "type": "module",
@@ -30,17 +30,16 @@
     "url": "git+https://github.com/KsoftmHub/meebon-package-template.git"
   },
   "scripts": {
-    "build:clean": "tsc --build --clean",
-    "build": "tsc && jest",
-    "test": "jest",
+    "ci": "pnpm run rm:node && pnpm i",
     "rm:node": "find . -name \"node_modules\" -type d -prune -exec rm -rf '{}' +",
-    "rm:dist": "find . -name \"dist\" -type d -prune -exec rm -rf '{}' +",
-    "clean": "pnpm run rm:node && pnpm run rm:dist",
+    "clean": "tsx scripts/clean.ts --tsconfig tsconfig.json",
+    "build": "tsx scripts/build.ts --tsconfig tsconfig.json && jest",
+    "test": "jest",
     "commit": "git-cz",
     "semantic-release": "semantic-release"
   },
   "bugs": {
-    "url": "https://github.com/KsoftmHub/meebon_package_template/issues"
+    "url": "https://github.com/KsoftmHub/meebon-package-template/issues"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
@@ -51,8 +50,11 @@
     "semantic-release": "^24.2.1",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.1"
+    "typescript-eslint": "^8.19.1",
+    "esbuild": "^0.24.2",
+    "tsx": "^4.19.2"
   },
+  "dependencies": {},
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
